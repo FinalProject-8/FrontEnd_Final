@@ -1,12 +1,3 @@
----
-name: ISSUE_TEMPLATES
-about: Describe this issue template's purpose here.
-title: ''
-labels: ''
-assignees: ''
-
----
-
 ## 제목은 `개발 페이지 - 개발 목적`으로 통일해 주세요. labels, assignees 잊지 말기! (issue 올릴 때 이 부분 삭제)
 
 ## 개발 목적
