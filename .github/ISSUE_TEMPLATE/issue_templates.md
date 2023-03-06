@@ -1,9 +1,9 @@
 ---
-name: ISSUE_TEMPLATES.md
+name: ISSUE_TEMPLATES
 about: Describe this issue template's purpose here.
 title: ''
-labels: env
-assignees: whtmdgn1409
+labels: ''
+assignees: ''
 
 ---
 
