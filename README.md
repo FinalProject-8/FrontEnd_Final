@@ -38,20 +38,6 @@
 
 <td  align="center"  width="200px">
 
-<img  width="100%"  src="https://avatars.githubusercontent.com/u/48482406?v=4"  alt=""/>
-
-팀원 FE.<br/>
-
-<a  href="https://github.com/hwanky">
-
-<img  src="https://img.shields.io/badge/최지환-000?style=flat-round&logo=GitHub&logoColor=white"/>
-
-</a>
-
-</td>
-
-<td  align="center"  width="200px">
-
 <img  width="100%"  src="https://avatars.githubusercontent.com/u/99115509?v=4"  alt=""/>
 
 팀원 FE.<br/>
