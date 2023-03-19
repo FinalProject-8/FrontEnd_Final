@@ -1,7 +1,17 @@
-import React from 'react';
+import styled from 'styled-components';
+import CommentaryHeader from '../../../components/mobile/commentary/header';
 
-const index = () => {
-  return <div>index</div>;
+type prop = {};
+const commentaryIndex = (prop: prop) => {
+  return (
+    <Wrap>
+      <CommentaryHeader />
+    </Wrap>
+  );
 };
 
-export default index;
+const Wrap = styled.div`
+  width: 360px;
+  display: flex;
+`;
+export default commentaryIndex;
