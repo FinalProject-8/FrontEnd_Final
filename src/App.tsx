@@ -1,7 +1,5 @@
-import { ScrollRestoration, Outlet } from "react-router-dom";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
-
+import { ScrollRestoration, Outlet } from 'react-router-dom';
+import './App.css';
 function App() {
   return (
     <div>
