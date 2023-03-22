@@ -2,8 +2,12 @@ import React from 'react';
 import Login from '../../components/mobile/commentary/web/admin/Login';
 import styled from 'styled-components';
 
-const Admin = () => {
-  return <BackGround></BackGround>;
+const AdminLogin = () => {
+  return (
+    <BackGround>
+      <Login />
+    </BackGround>
+  );
 };
 const BackGround = styled.div`
   background-color: #e8edf3;
@@ -13,4 +17,4 @@ const BackGround = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export default Admin;
+export default AdminLogin;
