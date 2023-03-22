@@ -80,7 +80,6 @@ const DownloadButton = styled.button`
   color: white;
   font-weight: bold;
 `
-
 const detail = () => {
   return (
     <>
