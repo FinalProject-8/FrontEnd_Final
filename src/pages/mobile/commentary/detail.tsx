@@ -43,7 +43,7 @@ const NavButton = styled.button`
 const VideoCaontainer = styled.div`
   width: 100%;
   height: 222px;
-  background: red;
+  background: skyBlue;
 `
 
 const SubjectInfoList = styled.ul`
