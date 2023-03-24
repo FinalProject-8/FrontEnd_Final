@@ -4,7 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './index.css';
 
 const App = React.lazy(() => import('./App'));
-const Commentary = React.lazy(() => import('./pages/mobile/commentary/index'));
+const Mobile = React.lazy(() => import('./pages/mobile/index'));
 const CommentaryDetail = React.lazy(
   () => import('./pages/mobile/commentary/detail'),
 );
@@ -15,8 +15,8 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: '/commentary',
-        element: <Commentary />,
+        path: '/mobile',
+        element: <Mobile />,
       },
       {
         path: '/commentary/detail',
