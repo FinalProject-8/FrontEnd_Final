@@ -38,7 +38,6 @@ const Tabs = styled.div`
   background-color: white;
   display: flex;
   gap: 10px;
-  /* margin-left: 20px; */
   padding-left: 20px;
   padding-top: 10px;
   box-sizing: border-box;
