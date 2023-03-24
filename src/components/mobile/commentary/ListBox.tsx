@@ -95,6 +95,7 @@ const Button = styled.button`
   font-size: 12px;
   display: flex;
   justify-content: center;
+  align-items: center;
   color: #ffffff;
   white-space: nowrap;
 `;

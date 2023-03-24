@@ -5,7 +5,9 @@ import MobileHeader from '../../components/mobile/header';
 import CommentaryLists from '../../components/mobile/commentary/Lists';
 import Strategy from '../../components/mobile/strategy/Strategy';
 type Props = {};
-const tabsList = ['학습전략', '기출해설'];
+interface TabProps {
+  active: boolean;
+}
 const Mobile = (props: Props) => {
   const [activeTab, setactiveTab] = useState(0);
   return (
@@ -13,13 +15,12 @@ const Mobile = (props: Props) => {
       <Headers>
         <MobileHeader />
         <Tabs>
-          {tabsList.map((tab, i) => {
-            return (
-              <Tab key={i} onClick={() => setactiveTab(i)}>
-                {tab}
-              </Tab>
-            );
-          })}
+          <Tab active={activeTab === 0} onClick={() => setactiveTab(0)}>
+            학습전략
+          </Tab>
+          <Tab active={activeTab === 1} onClick={() => setactiveTab(1)}>
+            기출해설
+          </Tab>
         </Tabs>
       </Headers>
 
@@ -43,11 +44,13 @@ const Tabs = styled.div`
   box-sizing: border-box;
   border-bottom: 1px solid #b3a7a7;
 `;
-const Tab = styled.div`
+const Tab = styled.div<TabProps>`
+  border-bottom: ${(props) => (props.active ? '3px solid #4D4D4D' : '')};
   font-weight: 700;
   font-size: 16px;
-  color: rgba(0, 0, 0, 0.7);
+  color: ${(props) => (props.active ? '#4D4D4D' : '#8B8B8B')};
 `;
+
 const Body = styled.div`
   position: relative;
   width: 360px;
