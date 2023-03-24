@@ -1,12 +1,9 @@
 import styled from 'styled-components';
-import CommentaryHeader from '../../../components/mobile/commentary/header';
-import CommentaryLists from '../../../components/mobile/commentary/lists';
-
+import CommentaryLists from './Lists';
 type prop = {};
 const commentaryIndex = (prop: prop) => {
   return (
     <Wrap>
-      <CommentaryHeader />
       <CommentaryLists />
     </Wrap>
   );
@@ -18,5 +15,6 @@ const Wrap = styled.div`
   background-color: #f5f5f5;
   justify-content: center;
   padding: 10px 0;
+  box-sizing: border-box;
 `;
 export default commentaryIndex;
