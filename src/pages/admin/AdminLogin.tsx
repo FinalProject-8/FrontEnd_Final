@@ -1,20 +1,19 @@
 import React from 'react';
 import Login from '../../components/mobile/commentary/web/admin/Login';
 import styled from 'styled-components';
+import '../../style/adminPage.css';
 
 const AdminLogin = () => {
   return (
-    <BackGround>
+    <LoginWrap>
       <Login />
-    </BackGround>
+    </LoginWrap>
   );
 };
-const BackGround = styled.div`
-  background-color: #e8edf3;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const LoginWrap = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 export default AdminLogin;

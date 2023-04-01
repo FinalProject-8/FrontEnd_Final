@@ -43,7 +43,7 @@ const Form = styled.form`
     line-height: 44px;
     font-size: 32px;
     font-weight: bold;
-    color: #083c91;
+    color: var(--color-title);
     margin-bottom: 15px;
   }
 `;
@@ -52,18 +52,18 @@ const Input = styled.input`
   width: 100%;
   height: 60px;
   padding: 20px;
-  border: 2px solid #a8bcd0;
+  border: 2px solid var(--color-input-border);
   box-sizing: border-box;
   border-radius: 20px;
   font-size: 20px;
-  color: #527aa1;
+  color: var(--color-button-text);
   &::placeholder {
-    color: #527aa1;
+    color: var(--color-button-text);
   }
 `;
 
 const Button = styled.button`
-  background-color: #527aa1;
+  background-color: var(--color-button-text);
   width: 100%;
   height: 68px;
   border: transparent;

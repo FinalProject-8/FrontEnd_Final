@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import './index.css';
 import AdminLogin from './pages/admin/AdminLogin';
 
 const App = React.lazy(() => import('./App'));
