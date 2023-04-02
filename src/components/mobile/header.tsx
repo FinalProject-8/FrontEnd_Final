@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 type props = {};
-const CommentaryHeader = (props: props) => {
+const MobileHeader = (props: props) => {
   return (
     <Header>
-      <TitleText>올라!학습특강 기출해설</TitleText>
+      <TitleText>올라! 경찰 학습특강</TitleText>
     </Header>
   );
 };
@@ -16,8 +16,6 @@ const Header = styled.div`
   height: 44px;
   display: flex;
   border-bottom: 0.5px solid black;
-  position: absolute;
-  top: 52px;
 `;
 const TitleText = styled.p`
   font-weight: 700;
@@ -25,4 +23,4 @@ const TitleText = styled.p`
   line-height: 24px;
   color: #000000;
 `;
-export default CommentaryHeader;
+export default MobileHeader;
