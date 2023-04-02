@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import AdminPatchCard from './AdminPatchCard';
 
 function AdminPost() {
-  const [count, setCount] = useState();
+  const location = useLocation().pathname;
+  const [title, setTitle] = useState('');
+  useEffect(() => {
+    if (location.includes('strategy')) {
+      setTitle('학습전략');
+    } else if (location.includes('previouscommentary')) {
+      setTitle('기출해설');
+    }
+  }, [location]);
   const use_for = () => {
     const result = [];
 
@@ -14,10 +22,12 @@ function AdminPost() {
 
     return result;
   };
+
   return (
     <MainContainer>
       <Category>
-        <h3>학습전략 게시물</h3>
+        {/* <h3>학습전략 게시물</h3> */}
+        <h3>{title} 게시물</h3>
         <FlexBox>
           <select>
             <option value='none'>직렬선택</option>

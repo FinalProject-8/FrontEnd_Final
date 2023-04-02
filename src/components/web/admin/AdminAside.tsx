@@ -1,32 +1,40 @@
-import { useState } from 'react';
+// import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
+import { adminLocation } from '../../../utils/adminLocation';
 
 function AdminAside() {
-  const [checkedButton, setCheckedButton] = useState();
   return (
     <Navigation>
-      <Link to='/'>
-        <ButtonBox>
+      <Link to='/admin'>
+        <ButtonBox
+          className={adminLocation() === 0 ? 'nav-item active' : 'nav-item'}
+        >
           <Icon icon='ph:pencil-simple' />
           <p>합격특강</p>
         </ButtonBox>
       </Link>
-      <Link to='/'>
-        <ButtonBox>
+      <Link to='/admin/strategy'>
+        <ButtonBox
+          className={adminLocation() === 1 ? 'nav-item active' : 'nav-item'}
+        >
           <Icon icon='ic:outline-ondemand-video' />
           <p>학습전략</p>
         </ButtonBox>
       </Link>
-      <Link to='/'>
-        <ButtonBox>
+      <Link to='/admin/previouscommentary'>
+        <ButtonBox
+          className={adminLocation() === 2 ? 'nav-item active' : 'nav-item'}
+        >
           <Icon icon='material-symbols:menu-book-outline-rounded' />
           <p>기출해설</p>
         </ButtonBox>
       </Link>
-      <Link to='/'>
-        <ButtonBox>
+      <Link to='/admin'>
+        <ButtonBox
+          className={adminLocation() === 0 ? 'nav-item active' : 'nav-item'}
+        >
           <Icon icon='ic:outline-rate-review' />
           <p>합격후기</p>
         </ButtonBox>
@@ -48,6 +56,13 @@ const Navigation = styled.nav`
   row-gap: 36px;
   padding: 50px 20px;
   box-sizing: border-box;
+  .active {
+    p,
+    svg {
+      color: var(--color-button-text);
+      font-weight: bold;
+    }
+  }
 `;
 
 const ButtonBox = styled.div`
@@ -69,6 +84,7 @@ const ButtonBox = styled.div`
     }
   }
 `;
+
 const Button = styled.button`
   background: inherit;
   border: none;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Login from '../../components/mobile/commentary/web/admin/Login';
+import Login from '../../components/web/admin/Login';
 import styled from 'styled-components';
 import '../../style/adminPage.css';
 

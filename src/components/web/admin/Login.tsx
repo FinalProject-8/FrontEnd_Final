@@ -1,5 +1,5 @@
 import React from 'react';
-import ollaeduLogo from '../../../../../assets/ollaeduLogo.svg';
+import ollaeduLogo from '../../../assets/ollaeduLogo.svg';
 import styled from 'styled-components';
 
 function Login() {

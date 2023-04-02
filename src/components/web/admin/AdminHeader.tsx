@@ -59,6 +59,7 @@ const InputBox = styled.div`
   svg {
     font-size: 28px;
     color: var(--color-button-text);
+    cursor: pointer;
   }
 `;
 

@@ -7,8 +7,7 @@ function AdminPatchCard() {
       <ListCard>
         <p>번호</p>
         <p>제목</p>
-        <p>직렬</p>
-        <p>과목</p>
+        <p>직렬</p>2<p>과목</p>
         <p>담당교수</p>
         <p>다운로드 수</p>
         <p>조회수</p>
