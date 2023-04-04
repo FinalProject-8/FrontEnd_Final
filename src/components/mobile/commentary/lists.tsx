@@ -29,20 +29,44 @@ const dummyLists = [
     commentaryVideo1: '영상링크',
     commentaryVideo2: '영상링크',
   },
+  {
+    class: '경찰',
+    subject: '경찰학',
+    instructorImg: '이미지파일링크',
+    instructorName: '김재규',
+    lectureName: '2022년 경찰공채 2차시험',
+    commentaryFile: 'pdf링크',
+    downloadCount: 3,
+    overallVideo: '영상링크',
+    commentaryVideo1: '영상링크',
+    commentaryVideo2: '영상링크',
+  },
+  {
+    class: '경찰',
+    subject: '경찰학',
+    instructorImg: '이미지파일링크',
+    instructorName: '김재규',
+    lectureName: '2022년 경찰공채 2차시험',
+    commentaryFile: 'pdf링크',
+    downloadCount: 3,
+    overallVideo: '영상링크',
+    commentaryVideo1: '영상링크',
+    commentaryVideo2: '영상링크',
+  },
 ];
 const CommentaryLists = (props: Props) => {
-  const [lists, setlists] = useState<Array<DataSet>>([]);
+  // const [lists, setlists] = useState<Array<DataSet>>([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      const commentaryList = await getCommentaryList();
-      setlists(commentaryList);
-    }
-    fetchData();
-  }, []);
-  console.log(lists);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const commentaryList = await getCommentaryList();
+  //     setlists(commentaryList);
+  //   }
+  //   fetchData();
+  // }, []);
+  // console.log(lists);
   return (
-    <div>
+    <List>
       {dummyLists.map((item, index) => (
         <ListBox
           key={index}
@@ -58,8 +82,16 @@ const CommentaryLists = (props: Props) => {
           instructorName={item.instructorName}
         />
       ))}
-    </div>
+    </List>
   );
 };
+const List = styled.div`
+  width: 360px;
+  display: flex;
 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+`;
 export default CommentaryLists;

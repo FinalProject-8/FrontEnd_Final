@@ -3,7 +3,14 @@ import styled from 'styled-components';
 type Props = {};
 
 const Strategy = (props: Props) => {
-  return <Wrap></Wrap>;
+  return (
+    <Wrap>
+      <div>
+        {/* tab */}
+        {/* lists */}
+      </div>
+    </Wrap>
+  );
 };
 
 const Wrap = styled.div`

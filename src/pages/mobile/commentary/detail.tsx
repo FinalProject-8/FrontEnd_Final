@@ -78,7 +78,7 @@ const DownloadButton = styled.button`
   color: white;
   font-weight: bold;
 `;
-const detail = () => {
+const Detail = () => {
   return (
     <>
       <Header>올라! 학습특강 기출 해설</Header>
@@ -101,4 +101,4 @@ const detail = () => {
   );
 };
 
-export default detail;
+export default Detail;

@@ -5,9 +5,7 @@ import './index.css';
 
 const App = React.lazy(() => import('./App'));
 const Mobile = React.lazy(() => import('./pages/mobile/index'));
-const CommentaryDetail = React.lazy(
-  () => import('./pages/mobile/commentary/detail'),
-);
+const Detail = React.lazy(() => import('./pages/mobile/commentary/detail'));
 const Admin = React.lazy(() => import('./pages/admin/index'));
 const router = createBrowserRouter([
   {
@@ -19,8 +17,8 @@ const router = createBrowserRouter([
         element: <Mobile />,
       },
       {
-        path: '/commentary/detail',
-        element: <CommentaryDetail />,
+        path: '/detail',
+        element: <Detail />,
       },
       {
         path: '/admin',
