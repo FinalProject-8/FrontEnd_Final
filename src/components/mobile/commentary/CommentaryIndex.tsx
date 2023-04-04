@@ -12,9 +12,8 @@ const CommentaryIndex = (prop: prop) => {
         <Filters value='과목선택' list={subject} />
         <Filters value='년도' list={years} />
       </FilterTab>
-      <Listbody>
-        <CommentaryLists />
-      </Listbody>
+
+      <CommentaryLists />
     </Wrap>
   );
 };
@@ -33,19 +32,19 @@ const Wrap = styled.div`
   box-sizing: border-box;
 `;
 const FilterTab = styled.div`
+  background: white;
   z-index: 0;
-  margin-left: 20px;
+  box-sizing: border-box;
+  padding-left: 20px;
   position: fixed;
   top: 86px;
-  width: inherit;
+  width: 360px;
   height: 43px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 8px;
-  /* background-color: black; */
+  z-index: 100;
 `;
-const Listbody = styled.div`
-  overflow: hidden;
-`;
+
 export default CommentaryIndex;

@@ -32,6 +32,8 @@ const Headers = styled.div`
   max-width: 360px;
   position: fixed;
   top: 0;
+  z-index: 100;
+  background: white;
 `;
 const Tabs = styled.div`
   max-width: 360px;
