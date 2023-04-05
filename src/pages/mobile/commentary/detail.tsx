@@ -1,5 +1,7 @@
-import { HTMLAttributes } from 'react';
+import {HTMLAttributes, useEffect, useState} from 'react';
 import styled from 'styled-components';
+import {getStrategyDetail} from "../../../api/axios";
+import {useLocation, useParams} from "react-router-dom";
 
 const Header = styled.header`
   position: sticky;
@@ -26,7 +28,7 @@ const Tab = styled.div`
 `;
 
 type TabButtonProps = HTMLAttributes<HTMLButtonElement> & {
-  color?: string;
+    color?: string;
 };
 
 const TabButton = styled.button<TabButtonProps>`
@@ -41,7 +43,8 @@ const NavButton = styled.button`
   font-weight: bold;
 `;
 const VideoCaontainer = styled.div`
-  width: 100%;
+  width: 100vw;
+  transform: translateX(-17px);
   height: 222px;
   background: skyBlue;
 `;
@@ -49,7 +52,7 @@ const VideoCaontainer = styled.div`
 const SubjectInfoList = styled.ul``;
 
 type SubjectInfoProps = HTMLAttributes<HTMLLIElement> & {
-  align?: 'center' | 'start' | 'end';
+    align?: 'center' | 'start' | 'end';
 };
 
 const SubjectInfo = styled.div<SubjectInfoProps>`
@@ -79,26 +82,49 @@ const DownloadButton = styled.button`
   font-weight: bold;
 `;
 const Detail = () => {
-  return (
-    <>
-      <Header>올라! 학습특강 기출 해설</Header>
-      <Tab>
-        <TabButton>학습전략</TabButton>
-        <TabButton color='#3988FF'>기출해설</TabButton>
-      </Tab>
-      <NavButton>{'<'} 2022 경찰 공채 2차 시험</NavButton>
-      <VideoCaontainer />
-      <SubjectInfoList>
-        <SubjectInfo>기출 해설 1번</SubjectInfo>
-        <SubjectInfo>경찰학 김재규</SubjectInfo>
-        <SubjectInfo align='end'>조회수 2333 2023.03.23</SubjectInfo>
-      </SubjectInfoList>
-      <DownloadContainer>
-        <DownloadButton>총평 다운</DownloadButton>
-        <DownloadButton>해설지 다운</DownloadButton>
-      </DownloadContainer>
-    </>
-  );
+    const [isLoading, setIsLoading] = useState(true);
+    const [data, setData] = useState(null);
+    const {index} = useParams();
+    console.log(index);
+    console.log("this is detailPage");
+    useEffect(() => {
+        async function fetch() {
+            const response = await getStrategyDetail(Number(index));
+            console.log(response);
+            setData(response);
+            setIsLoading(false);
+        }
+
+        fetch();
+    }, []);
+
+
+    return (
+        <>
+            <Header>올라! 학습특강 기출 해설</Header>
+            <Tab>
+                <TabButton>학습전략</TabButton>
+                <TabButton color='#3988FF'>기출해설</TabButton>
+            </Tab>
+            {
+                isLoading ? <div>로딩중</div> : (
+                    <>
+                        <VideoCaontainer/>
+                        <NavButton>{'<'} 2022 경찰 공채 2차 시험</NavButton>
+                        <SubjectInfoList>
+                            <SubjectInfo>기출 해설 1번</SubjectInfo>
+                            <SubjectInfo>경찰학 김재규</SubjectInfo>
+                            <SubjectInfo align='end'>조회수 2333 2023.03.23</SubjectInfo>
+                        </SubjectInfoList>
+                        <DownloadContainer>
+                            <DownloadButton>총평 다운</DownloadButton>
+                            <DownloadButton>해설지 다운</DownloadButton>
+                        </DownloadContainer>
+                    </>
+                )
+            }
+        </>
+    );
 };
 
 export default Detail;
