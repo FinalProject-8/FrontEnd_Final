@@ -19,7 +19,8 @@ const Total = (props: Props) => {
   return (
     <Wrap>
       <GridContainer>
-        {lists?.data.map((el, idx) => (
+        {/* lists?.data.map */}
+        {dummyTotalData?.map((el, idx) => (
           <GridBox
             key={idx}
             strategyId={el.strategyId}
@@ -44,5 +45,7 @@ const GridContainer = styled.div`
   gap: 30px;
   grid-template-columns: 150px 150px;
   grid-template-rows: 150px 150px;
+  padding: 0 10px;
+  margin-top: 20px;
 `;
 export default Total;

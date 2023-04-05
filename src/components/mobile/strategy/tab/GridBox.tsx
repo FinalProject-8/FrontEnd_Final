@@ -33,17 +33,17 @@ const Box = styled.div`
   flex-direction: column;
   width: 160px;
   height: 182px;
+  gap: 3px;
 `;
 const Image = styled.img<ImageProp>`
   width: 160px;
   height: 90px;
   border-radius: 4px;
-  background-image: url(src);
 `;
 const Info = styled.div`
   display: flex;
   gap: 3px;
-  padding-left: 10px;
+  padding-left: 5px;
 `;
 const Subject = styled.p`
   color: #3d59ab;
@@ -64,6 +64,8 @@ const Instructor = styled.p`
 const Title = styled.p`
   font-size: 14px;
   font-weight: 700;
+  text-align: left;
+  padding-left: 5px;
 `;
 const SubInfo = styled.div``;
 const Date = styled.p`
@@ -71,6 +73,6 @@ const Date = styled.p`
   font-size: 10px;
   color: #888888;
   text-align: left;
-  padding-left: 10px;
+  padding-left: 5px;
 `;
 export default GridBox;
