@@ -17,7 +17,7 @@ const router = createBrowserRouter([
         element: <Mobile />,
       },
       {
-        path: '/detail',
+        path: '/mobile/:commentaryId',
         element: <Detail />,
       },
       {

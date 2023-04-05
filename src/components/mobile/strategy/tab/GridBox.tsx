@@ -3,7 +3,7 @@ import { ChangeDate, CheckSubject } from '../../../../../public/dummy/data';
 type Props = {
   strategyId: number;
   subjectId: number;
-  lectureTitle: string;
+  lectureName: string;
   instructorName: string;
   content: string;
   image: string;
@@ -21,7 +21,9 @@ const GridBox = (props: Props) => {
         <Subject>{CheckSubject(props.subjectId)}</Subject>
         <Instructor>{props.instructorName} 교수님</Instructor>
       </Info>
-      <Title>{props.lectureTitle}</Title>
+      <Title>
+        {props.lectureName} | {props.content}
+      </Title>
       <SubInfo>
         <Date>{ChangeDate(props.createdDate)}</Date>
       </SubInfo>

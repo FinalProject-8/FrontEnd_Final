@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { dummyTotalData } from '../../../../../public/dummy/data';
 import GridBox from './GridBox';
 import { getStrategyList, strategyList } from '../../../../api/axios';
 type Props = {};
@@ -19,14 +18,14 @@ const CriminalLaw = (props: Props) => {
     <Wrap>
       <GridContainer>
         {/* lists?.data.map */}
-        {dummyTotalData?.map((el, idx) => {
+        {lists?.data.map((el, idx) => {
           if (el.subjectId === 2) {
             return (
               <GridBox
                 key={idx}
                 strategyId={el.strategyId}
                 subjectId={el.subjectId}
-                lectureTitle={el.lectureTitle}
+                lectureName={el.lectureName}
                 instructorName={el.instructorName}
                 content={el.content}
                 image={el.image}
