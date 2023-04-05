@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import MobileHeader from '../../components/mobile/header';
-import CommentaryLists from '../../components/mobile/commentary/Lists';
+import CommentaryIndex from '../../components/mobile/commentary/CommentaryIndex';
 import Strategy from '../../components/mobile/strategy/Strategy';
 type Props = {};
+
 interface TabProps {
   active: boolean;
 }
@@ -23,18 +24,19 @@ const Mobile = (props: Props) => {
           </Tab>
         </Tabs>
       </Headers>
-
-      <Body>{[<Strategy />, <CommentaryLists />][activeTab]}</Body>
+      <Body>{[<Strategy />, <CommentaryIndex />][activeTab]}</Body>
     </div>
   );
 };
 const Headers = styled.div`
-  width: 360px;
+  max-width: 360px;
   position: fixed;
   top: 0;
+  z-index: 100;
+  background: white;
 `;
 const Tabs = styled.div`
-  width: 360px;
+  max-width: 360px;
   height: 42px;
   background-color: white;
   display: flex;
@@ -42,17 +44,18 @@ const Tabs = styled.div`
   padding-left: 20px;
   padding-top: 10px;
   box-sizing: border-box;
-  border-bottom: 1px solid #b3a7a7;
+  border-bottom: 1px solid #dcdcdc;
 `;
 const Tab = styled.div<TabProps>`
-  border-bottom: ${(props) => (props.active ? '3px solid #4D4D4D' : '')};
+  border-bottom: ${(props) => (props.active ? '3px solid #3D59AB' : '')};
   font-weight: 700;
   font-size: 16px;
-  color: ${(props) => (props.active ? '#4D4D4D' : '#8B8B8B')};
+  color: ${(props) => (props.active ? '#3D59AB' : '#888888')};
 `;
 
 const Body = styled.div`
-  position: relative;
-  width: 360px;
+  position: absolute;
+  top: 129px;
+  max-width: 360px;
 `;
 export default Mobile;
