@@ -91,16 +91,16 @@ const dummyLists = [
   },
 ];
 const CommentaryLists = (props: Props) => {
-  // const [lists, setlists] = useState<Array<DataSet>>([]);
+  const [lists, setlists] = useState<Array<DataSet>>([]);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const commentaryList = await getCommentaryList();
-  //     setlists(commentaryList);
-  //   }
-  //   fetchData();
-  // }, []);
-  // console.log(lists);
+  useEffect(() => {
+    async function fetchData() {
+      const commentaryList = await getCommentaryList();
+      setlists(commentaryList);
+    }
+    fetchData();
+  }, []);
+  console.log(lists);
   return (
     <List>
       {dummyLists.map((item, index) => (

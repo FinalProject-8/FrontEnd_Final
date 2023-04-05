@@ -19,11 +19,41 @@ export interface DataSet {
   message: string;
   data: CommentaryList;
 }
+export interface strategyList {
+  data: Array<strategy>;
+}
+interface strategy {
+  strategyId: number;
+  subjectId: number;
+  lectureTitle: string;
+  instructorName: string;
+  content: string;
+  image: string;
+  createdDate: string;
+}
 export const getCommentaryList = async (): Promise<any> => {
   const res = await request('/commentary', {
     method: 'GET',
   });
   return {
-    CommentaryListData: res,
+    CommentaryListData: res.data,
+  };
+};
+
+export const getStrategyList = async (): Promise<any> => {
+  const res = await request('/strategy', {
+    method: 'GET',
+  });
+  return {
+    data: res.data,
+  };
+};
+
+export const getStrategy = async (strategyId: number): Promise<any> => {
+  const res = await request(`/strategy/${strategyId}`, {
+    method: 'GET',
+  });
+  return {
+    data: res.data,
   };
 };
