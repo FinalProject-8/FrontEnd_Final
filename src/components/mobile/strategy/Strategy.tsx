@@ -21,6 +21,8 @@ const Strategy = (props: Props) => {
   const [activeTab, setactiveTab] = useState(0);
   const [activeSearch, setactiveSearch] = useState(true);
   const [getSearch, setSearchValue] = useState<string>('');
+  const navigate = useNavigate();
+
   const ChangeSearchState = (activeSearch: Boolean) => {
     setactiveSearch(!activeSearch);
   };
@@ -28,10 +30,7 @@ const Strategy = (props: Props) => {
     setSearchValue(e.target.value);
   };
 
-  const GoToSearch = (searchValue: string) => {
-    const navigate = useNavigate();
-    navigate('/mobile/search', { state: searchValue });
-  };
+  const GoToSearch = navigate('/mobile/search', { state: getSearch });
   return (
     <Wrap>
       <TabContainer>
@@ -63,7 +62,9 @@ const Strategy = (props: Props) => {
           onChange={handleInputSearch}
           placeholder='검색어를 입력하세요'
         />
-        <button onClick={() => GoToSearch(getSearch)}>검색</button>
+        <Button active={activeSearch} onClick={() => GoToSearch}>
+          검색
+        </Button>
       </SearchContainer>
       <ContentContainer>{tabs[activeTab].content}</ContentContainer>
     </Wrap>
@@ -107,6 +108,7 @@ const SearchContainer = styled.div<TabProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 3px;
 `;
 const Input = styled.input<TabProps>`
   display: flex;
@@ -116,7 +118,7 @@ const Input = styled.input<TabProps>`
   padding: 4px 10px 4px 20px;
   gap: 10px;
 
-  width: 322px;
+  width: 282px;
   height: ${(props) => (props.active ? '0' : '32px')};
   opacity: ${(props) => (props.active ? '0' : '1')};
   transition: 1s;
@@ -131,7 +133,7 @@ const Input = styled.input<TabProps>`
     padding: 4px 10px 4px 20px;
     gap: 10px;
 
-    width: 322px;
+    width: 282px;
     height: 32px;
     opacity: ${(props) => (props.active ? '0' : '1')};
     transition: 1s;
@@ -139,6 +141,17 @@ const Input = styled.input<TabProps>`
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
   }
+`;
+const Button = styled.button<TabProps>`
+  opacity: ${(props) => (props.active ? '0' : '1')};
+  transition: 1s;
+  width: 40px;
+  height: ${(props) => (props.active ? '0' : '32px')};
+  background: #ffffff;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  padding: 4px 4px;
+  font-size: 14px;
+  white-space: nowrap;
 `;
 const Wrap = styled.div`
   position: absolute;
