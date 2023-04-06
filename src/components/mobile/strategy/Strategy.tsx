@@ -4,7 +4,7 @@ import Total from './tab/Total';
 import PoliceAdministration from './tab/PoliceAdministration';
 import PoliceScience from './tab/PoliceScience';
 import CriminalLaw from './tab/CriminalLaw';
-
+import { AiOutlineSearch } from 'react-icons/ai';
 type Props = {};
 interface TabProps {
   active: boolean;
@@ -18,7 +18,7 @@ const tabs = [
 ];
 const Strategy = (props: Props) => {
   const [activeTab, setactiveTab] = useState(0);
-
+  const [activeSearch, setactiveSearch] = useState(Boolean);
   return (
     <Wrap>
       <TabContainer>
@@ -33,7 +33,18 @@ const Strategy = (props: Props) => {
             {el.name}
           </TabButton>
         ))}
+        <Search>
+          <AiOutlineSearch
+            size='24'
+            onClick={() => {
+              setactiveSearch(!activeSearch);
+            }}
+          />
+        </Search>
       </TabContainer>
+      <SearchContainer active={activeSearch}>
+        <Input placeholder='검색어를 입력하세요' />
+      </SearchContainer>
       <ContentContainer>{tabs[activeTab].content}</ContentContainer>
     </Wrap>
   );
@@ -61,6 +72,33 @@ const TabButton = styled.li<TabProps>`
   padding: 0 5px;
   background-color: ${(props) => (props.active ? 'black' : 'white')};
   color: ${(props) => (props.active ? 'white' : 'black')};
+`;
+const Search = styled.div`
+  margin-left: 40px;
+`;
+const SearchContainer = styled.div<TabProps>`
+  display: ${(props) => (props.active ? 'block' : 'none')};
+  padding: 3px;
+  box-sizing: border-box;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const Input = styled.input`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 4px 10px 4px 20px;
+  gap: 10px;
+
+  width: 322px;
+  height: 32px;
+
+  background: #ffffff;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
 `;
 const Wrap = styled.div`
   position: absolute;

@@ -100,7 +100,6 @@ const CommentaryLists = (props: Props) => {
     }
     fetchData();
   }, []);
-  console.log(lists);
   return (
     <List>
       {dummyLists.map((item, index) => (
