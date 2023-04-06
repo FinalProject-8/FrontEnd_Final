@@ -25,7 +25,7 @@ export interface strategyList {
 interface strategy {
   strategyId: number;
   subjectId: number;
-  lectureTitle: string;
+  lectureName: string;
   instructorName: string;
   content: string;
   image: string;
