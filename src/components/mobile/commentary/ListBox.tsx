@@ -17,7 +17,7 @@ type Props = {
 const ListBox = (props: Props) => {
   const navigate = useNavigate();
   const moveToDetail = () => {
-    navigate('/mobile/:1');
+    navigate('/mobile/detail');
   };
   return (
     <Box onClick={() => moveToDetail()}>

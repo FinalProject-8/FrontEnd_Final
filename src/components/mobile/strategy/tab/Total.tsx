@@ -15,7 +15,7 @@ const Total = (props: Props) => {
     }
     fetchData();
   }, []);
-  console.log(lists);
+  // console.log(lists);
 
   return (
     <Wrap>
