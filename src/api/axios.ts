@@ -57,3 +57,15 @@ export const getStrategy = async (strategyId: number): Promise<any> => {
     data: res.data,
   };
 };
+
+export const getStrategyDetail = async (postId: number): Promise<any> => {
+  const res = await request(`/strategy/detail`, {
+    method: 'GET',
+    data: {
+      "postId": postId
+    }
+  });
+  return {
+    data: res.data,
+  };
+};
