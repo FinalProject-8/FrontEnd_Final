@@ -45,7 +45,6 @@ function App() {
       <ScrollRestoration />
       <Outlet />
       <GlobalStyles />
-      <PCheader />
     </div>
   );
 }
