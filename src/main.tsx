@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import AdminLogin from './pages/admin/AdminLogin';
 import PreviousCommentary from './pages/admin/PreviousCommentary';
+import PreviousManage from './pages/admin/PreviousManage';
 import Strategy from './pages/admin/Strategy';
+import StrategyManage from './pages/admin/StrategyManage';
 
 const App = React.lazy(() => import('./App'));
 const Mobile = React.lazy(() => import('./pages/mobile/index'));
@@ -34,12 +36,20 @@ const router = createBrowserRouter([
         element: <Admin />,
       },
       {
-        path: '/admin/previouscommentary',
+        path: '/admin/previous',
         element: <PreviousCommentary />,
       },
       {
         path: '/admin/strategy',
         element: <Strategy />,
+      },
+      {
+        path: '/admin/strategy/manage',
+        element: <StrategyManage />,
+      },
+      {
+        path: '/admin/previous/manage',
+        element: <PreviousManage />,
       },
     ],
   },

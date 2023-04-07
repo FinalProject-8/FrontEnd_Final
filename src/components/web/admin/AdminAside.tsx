@@ -23,7 +23,7 @@ function AdminAside() {
           <p>학습전략</p>
         </ButtonBox>
       </Link>
-      <Link to='/admin/previouscommentary'>
+      <Link to='/admin/previous'>
         <ButtonBox
           className={adminLocation() === 2 ? 'nav-item active' : 'nav-item'}
         >

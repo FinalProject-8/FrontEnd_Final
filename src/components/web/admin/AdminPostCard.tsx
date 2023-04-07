@@ -1,25 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function AdminPatchCard() {
+function AdminPostCard() {
   return (
-    <div>
+    <>
       <ListCard>
         <p>번호</p>
         <p>제목</p>
-        <p>직렬</p>2<p>과목</p>
+        <p>직렬</p>
+        <p>과목</p>
         <p>담당교수</p>
         <p>다운로드 수</p>
         <p>조회수</p>
         <p>날짜</p>
       </ListCard>
-    </div>
+    </>
   );
 }
 const ListCard = styled.li`
   display: flex;
   gap: 10px;
   padding: 10px 20px;
+  border-bottom: 1px solid var(--color-admin-background);
   box-sizing: border-box;
   & > p {
     width: calc((100% - 756px) / 6);
@@ -37,4 +39,4 @@ const ListCard = styled.li`
     text-align: left;
   }
 `;
-export default AdminPatchCard;
+export default AdminPostCard;

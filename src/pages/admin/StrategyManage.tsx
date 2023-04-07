@@ -3,15 +3,15 @@ import styled from 'styled-components';
 import AdminAside from '../../components/web/admin/AdminAside';
 import AdminHeader from '../../components/web/admin/AdminHeader';
 import '../../style/adminPage.css';
-import AdminPost from '../../components/web/admin/AdminPost';
+import AdminPostManage from '../../components/web/admin/AdminPostMange';
 
-function PreviousCommentary() {
+function StrategyManage() {
   return (
     <>
       <AdminHeader />
       <FlexBox>
         <AdminAside />
-        <AdminPost />
+        <AdminPostManage />
       </FlexBox>
     </>
   );
@@ -20,7 +20,6 @@ function PreviousCommentary() {
 const FlexBox = styled.div`
   padding-top: 84px;
   display: flex;
-  /* justify-content: center; */
 `;
 
-export default PreviousCommentary;
+export default StrategyManage;
