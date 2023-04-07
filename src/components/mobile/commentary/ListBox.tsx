@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 type Props = {
   class: string;
@@ -14,8 +15,12 @@ type Props = {
 };
 
 const ListBox = (props: Props) => {
+  const navigate = useNavigate();
+  const moveToDetail = () => {
+    navigate('/mobile/detail');
+  };
   return (
-    <Box>
+    <Box onClick={() => moveToDetail()}>
       <Image src='./public/people.png' alt='교수사진' />
       <Info>
         <Title>
@@ -54,12 +59,15 @@ const Image = styled.img`
   margin: auto 10px;
 `;
 const Info = styled.div`
-  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
 `;
 const Title = styled.div`
   display: flex;
   gap: 5px;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
   text-align: left;
 `;
@@ -67,6 +75,7 @@ const Desc = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 3px;
 `;
 const Lecture = styled.div`
   font-family: Noto Sans;
@@ -81,6 +90,8 @@ const Download = styled.a`
   font-weight: 700;
   line-height: 16px;
   letter-spacing: 0em;
+  text-decoration-line: underline;
+  color: #3d59ab;
 `;
 const Buttons = styled.div`
   display: flex;
@@ -89,14 +100,14 @@ const Buttons = styled.div`
 const Button = styled.button`
   width: 68px;
   height: 30px;
-  background: #83b4ff;
+  background: #ececec;
   border-radius: 4px;
   font-weight: 700;
   font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  color: #3d59ab;
   white-space: nowrap;
 `;
 export default ListBox;

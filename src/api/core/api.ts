@@ -4,10 +4,9 @@ import { getCookie } from '../../utils/cookiefn';
 
 export const token = getCookie('accessToken');
 const axiosConfig: AxiosRequestConfig = {
-  baseURL: 'https://e07b7b82-897d-49ec-96da-07598f327525.mock.pstmn.io/',
+  baseURL: 'https://www.eduhash0008.shop/',
   headers: {
     'content-type': 'application/json',
-    Authorization: `Bearer ${token}`,
   },
 };
 
