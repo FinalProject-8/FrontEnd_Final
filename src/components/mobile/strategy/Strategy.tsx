@@ -6,6 +6,7 @@ import PoliceAdministration from './tab/PoliceAdministration';
 import PoliceScience from './tab/PoliceScience';
 import CriminalLaw from './tab/CriminalLaw';
 import { AiOutlineSearch } from 'react-icons/ai';
+import Mobile from '../../../pages/mobile/mobiletab';
 type Props = {};
 interface TabProps {
   active: boolean;
@@ -30,44 +31,47 @@ const Strategy = (props: Props) => {
     setSearchValue(e.target.value);
   };
 
-  const GoToSearch = navigate('/mobile/search', { state: getSearch });
+  // const GoToSearch = navigate('/mobile/search', { state: getSearch });
   return (
-    <Wrap>
-      <TabContainer>
-        {tabs.map((el, index) => (
-          <TabButton
-            key={el.index}
-            active={activeTab === index}
-            onClick={() => {
-              setactiveTab(index);
-            }}
-          >
-            {el.name}
-          </TabButton>
-        ))}
-        <Search>
-          <AiOutlineSearch
-            size='24'
-            onClick={() => {
-              ChangeSearchState(activeSearch);
-            }}
+    <div>
+      <Mobile page={0} />
+      <Wrap>
+        <TabContainer>
+          {tabs.map((el, index) => (
+            <TabButton
+              key={el.index}
+              active={activeTab === index}
+              onClick={() => {
+                setactiveTab(index);
+              }}
+            >
+              {el.name}
+            </TabButton>
+          ))}
+          <Search>
+            <AiOutlineSearch
+              size='24'
+              onClick={() => {
+                ChangeSearchState(activeSearch);
+              }}
+            />
+          </Search>
+        </TabContainer>
+        <SearchContainer active={activeSearch}>
+          <Input
+            type='text'
+            active={activeSearch}
+            value={getSearch}
+            onChange={handleInputSearch}
+            placeholder='검색어를 입력하세요'
           />
-        </Search>
-      </TabContainer>
-      <SearchContainer active={activeSearch}>
-        <Input
-          type='text'
-          active={activeSearch}
-          value={getSearch}
-          onChange={handleInputSearch}
-          placeholder='검색어를 입력하세요'
-        />
-        <Button active={activeSearch} onClick={() => GoToSearch}>
+          {/* <Button active={activeSearch} onClick={() => GoToSearch}>
           검색
-        </Button>
-      </SearchContainer>
-      <ContentContainer>{tabs[activeTab].content}</ContentContainer>
-    </Wrap>
+        </Button> */}
+        </SearchContainer>
+        <ContentContainer>{tabs[activeTab].content}</ContentContainer>
+      </Wrap>
+    </div>
   );
 };
 const ContentContainer = styled.div`
@@ -155,7 +159,7 @@ const Button = styled.button<TabProps>`
 `;
 const Wrap = styled.div`
   position: absolute;
-  top: -20px;
+  top: 120px;
   width: 360px;
   display: flex;
   flex-direction: column;

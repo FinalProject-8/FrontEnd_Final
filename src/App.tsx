@@ -25,13 +25,13 @@ function App() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  useEffect(() => {
-    if (isMobile && location.pathname !== '/mobile') {
-      navigate('/mobile');
-    } else if (!isMobile && location.pathname === '/mobile') {
-      navigate('/');
-    }
-  }, [isMobile, location.pathname, navigate]);
+  // useEffect(() => {
+  //   if (isMobile && location.pathname !== '/mobile') {
+  //     navigate('/mobile');
+  //   } else if (!isMobile && location.pathname === '/mobile') {
+  //     navigate('/');
+  //   }
+  // }, [isMobile, location.pathname, navigate]);
 
   return isMobile ? (
     <div>

@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 type Props = {};
 
+interface Click {
+  active: boolean;
+}
 const PCheader = (props: Props) => {
   const [selectMenu, setselectMenu] = useState(true);
   return (
@@ -11,11 +14,11 @@ const PCheader = (props: Props) => {
       </ImgHeader>
       <Container>
         <MenuBar>
-          <Menu>합격특강</Menu>
-          <Menu>교수진</Menu>
-          <Menu>교재</Menu>
-          <Menu>수강후기</Menu>
-          <Menu>기숙학원</Menu>
+          <Menu active={true}>합격특강</Menu>
+          <Menu active={false}>교수진</Menu>
+          <Menu active={false}>교재</Menu>
+          <Menu active={false}>수강후기</Menu>
+          <Menu active={false}>기숙학원</Menu>
         </MenuBar>
       </Container>
     </Wrap>
@@ -42,6 +45,7 @@ const IMAGE = styled.img`
   height: 45px;
 `;
 const Container = styled.div`
+  padding-left: 20px;
   height: 60px;
   border-bottom: 2px solid #ececec;
 `;
@@ -52,8 +56,8 @@ const MenuBar = styled.div`
   float: left;
   gap: 40px;
 `;
-const Menu = styled.div`
-  color: #888888;
+const Menu = styled.div<Click>`
+  color: ${(props) => (props.active ? 'black' : '#888888')};
   white-space: nowrap;
 `;
 export default PCheader;
