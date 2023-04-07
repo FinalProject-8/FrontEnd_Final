@@ -8,6 +8,7 @@ const Mobile = React.lazy(() => import('./pages/mobile/index'));
 const Detail = React.lazy(() => import('./pages/mobile/commentary/detail'));
 const Admin = React.lazy(() => import('./pages/admin/index'));
 const Search = React.lazy(() => import('./pages/mobile/search/Search'));
+
 const router = createBrowserRouter([
   {
     path: '/',
