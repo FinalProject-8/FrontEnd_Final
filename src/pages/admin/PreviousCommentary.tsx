@@ -1,28 +1,26 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import AdminAside from '../../components/web/admin/AdminAside';
 import AdminHeader from '../../components/web/admin/AdminHeader';
 import '../../style/adminPage.css';
-import ready from '../../assets/ready.png';
+import AdminPost from '../../components/web/admin/AdminPost';
 
-const Admin = () => {
+function PreviousCommentary() {
   return (
     <>
       <AdminHeader />
       <FlexBox>
         <AdminAside />
-        <img src={ready} alt='사이트 로고' />
+        <AdminPost />
       </FlexBox>
     </>
   );
-};
+}
 
 const FlexBox = styled.div`
   padding-top: 84px;
   display: flex;
-  img {
-    margin: 100px auto;
-  }
+  /* justify-content: center; */
 `;
 
-export default Admin;
+export default PreviousCommentary;

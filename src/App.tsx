@@ -7,6 +7,7 @@ import {
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import PCheader from './components/pc/header';
+import GlobalStyles from './style/globalStyles';
 
 function App() {
   const location = useLocation();
@@ -37,11 +38,13 @@ function App() {
     <div>
       <ScrollRestoration />
       <Outlet />
+      <GlobalStyles />
     </div>
   ) : (
     <div>
       <ScrollRestoration />
       <Outlet />
+      <GlobalStyles />
       <PCheader />
     </div>
   );
