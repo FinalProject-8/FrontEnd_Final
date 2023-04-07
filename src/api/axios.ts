@@ -62,8 +62,22 @@ export const getStrategyDetail = async (postId: number): Promise<any> => {
   const res = await request(`/strategy/detail`, {
     method: 'GET',
     data: {
-      "postId": postId
-    }
+      postId: postId,
+    },
+  });
+  return {
+    data: res.data,
+  };
+};
+
+export const getCommentarySearchDate = async (
+  createdDate: string,
+): Promise<any> => {
+  const res = await request('/commentary/search/createdDate', {
+    method: 'GET',
+    data: {
+      createdDate: createdDate,
+    },
   });
   return {
     data: res.data,

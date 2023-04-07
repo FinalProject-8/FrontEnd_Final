@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
+import { dummyLists } from '../../../../public/dummy/data';
 type Props = {};
 
 const MainStrategy = (props: Props) => {
@@ -19,11 +19,7 @@ const MainStrategy = (props: Props) => {
         <Title>인기강의</Title>
         <Go>더보기</Go>
       </Box>
-      <Slider {...settings}>
-        <Slide src='public/인기강의.png' />
-        <Slide src='public/인기강의.png' />
-        <Slide src='public/인기강의.png' />
-      </Slider>
+      <Slider {...settings}></Slider>
     </div>
   );
 };
@@ -40,8 +36,5 @@ const Go = styled.button`
   font-size: 12px;
   color: #494949;
 `;
-const Slide = styled.img`
-  max-width: 208px;
-  height: 117px;
-`;
+
 export default MainStrategy;
