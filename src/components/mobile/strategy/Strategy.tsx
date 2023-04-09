@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Total from './tab/Total';
 import PoliceAdministration from './tab/PoliceAdministration';
@@ -22,7 +21,6 @@ const Strategy = (props: Props) => {
   const [activeTab, setactiveTab] = useState(0);
   const [activeSearch, setactiveSearch] = useState(true);
   const [getSearch, setSearchValue] = useState<string>('');
-  const navigate = useNavigate();
 
   const ChangeSearchState = (activeSearch: Boolean) => {
     setactiveSearch(!activeSearch);

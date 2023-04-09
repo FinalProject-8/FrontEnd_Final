@@ -7,14 +7,11 @@ import AdminCategory from './AdminCategory';
 function AdminPost() {
   const use_for = () => {
     const result = [];
-
     for (let i = 0; i < 9; i++) {
       result.push(<AdminPostCard />);
     }
-
     return result;
   };
-
   return (
     <MainContainer>
       <AdminCategory />

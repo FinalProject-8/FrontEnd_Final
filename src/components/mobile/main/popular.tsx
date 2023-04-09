@@ -19,9 +19,9 @@ const Popular = (props: Props) => {
         <Title>인기강의</Title>
       </Box>
       <Slider {...settings}>
-        <Slide src='public/인기강의.png' />
-        <Slide src='public/인기강의.png' />
-        <Slide src='public/인기강의.png' />
+        <Slide src='../public/인기강의.png' />
+        <Slide src='../public/인기강의.png' />
+        <Slide src='../public/인기강의.png' />
       </Slider>
     </div>
   );

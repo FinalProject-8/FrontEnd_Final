@@ -1,41 +1,63 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { getCommentaryImg, videoUrl } from '../../../api/axios';
 type Props = {
-  class: string;
-  subject: string;
-  instructorImg: string;
+  divisionName: string;
+  subjectName: string;
+  commentaryId: number;
   instructorName: string;
-  lectureName: string;
-  commentaryFile: string;
-  downloadCount: number;
-  overallVideo: string;
-  commentaryVideo1: string;
-  commentaryVideo2: string;
+  commentaryTitle: string;
+  createdDate: string;
+  fileDownloadCount: number;
+  fileName: string;
+  fileId: number;
+  videoUrl: Array<videoUrl>;
 };
+interface Btn {
+  onClick(): void;
+}
+const downloadFile = (url: string) => {
+  const fileUrl = url;
 
+  // a 태그를 만들어서 클릭 이벤트를 호출하여 파일 다운로드
+  const link = document.createElement('a');
+  link.href = fileUrl;
+  link.download = 'file.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 const ListBox = (props: Props) => {
+  const [img, setimg] = useState('');
+  useEffect(() => {
+    async function fetchData() {
+      const instructorImg = await getCommentaryImg(props.commentaryId);
+      setimg(instructorImg);
+    }
+    fetchData();
+  }, []);
   const navigate = useNavigate();
   const moveToDetail = () => {
     navigate('/mobile/detail');
   };
   return (
     <Box onClick={() => moveToDetail()}>
-      <Image src='./public/people.png' alt='교수사진' />
+      <Image src='../public/교수 사진.png' alt='교수사진' />
       <Info>
         <Title>
-          <p>{props.class}</p>
+          <p>{props.subjectName}</p>
           <p>{props.instructorName} 교수</p>
         </Title>
         <Desc>
-          <Lecture>{props.lectureName}</Lecture>
-          <Download href='https://docs.google.com/document/d/1Iqg4xigtQIZxsc6q92BV1AaBHdeywfNIAJwZ1QLgxpA/edit'>
-            해설지 다운로드
-          </Download>
+          <Lecture>{props.commentaryTitle}</Lecture>
+          <Download href={props.fileName}>해설지 다운로드</Download>
           <Buttons>
-            <Button>총평 다운</Button>
-            <Button>기출해설 1</Button>
-            <Button>기출해설 2</Button>
+            {props.videoUrl.map((el, idx) => (
+              <Button key={idx} onClick={() => downloadFile(el.videoUrl)}>
+                {el.videoName}
+              </Button>
+            ))}
           </Buttons>
         </Desc>
       </Info>
@@ -97,7 +119,7 @@ const Buttons = styled.div`
   display: flex;
   gap: 7px;
 `;
-const Button = styled.button`
+const Button = styled.button<Btn>`
   width: 68px;
   height: 30px;
   background: #ececec;
