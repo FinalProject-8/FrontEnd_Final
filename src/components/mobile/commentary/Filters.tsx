@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { darken } from 'polished';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 type Props = {
   list: string[];
   value: string;
+  setdata: (subjectClick: string) => void;
 };
-
-const Filters = ({ list, value }: Props) => {
+const Filters = ({ list, value, setdata }: Props) => {
   const [active, setActive] = useState(false);
   const [selected, setSelected] = useState(value);
+
   return (
     <StyledSelectbox>
       {' '}
@@ -29,6 +30,7 @@ const Filters = ({ list, value }: Props) => {
                 onClick={() => {
                   setActive(false);
                   setSelected(element);
+                  setdata(element);
                 }}
               >
                 {' '}

@@ -1,24 +1,14 @@
-import { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { CommentaryList, getCommentaryList } from '../../../api/axios';
+import React from 'react';
 import ListBox from './ListBox';
-import { dummyLists } from '../../../../public/dummy/data';
+import styled from 'styled-components';
+import { dummyPAList } from '../../../../public/dummy/data';
+
 type Props = {};
 
-const CommentaryLists = (props: Props) => {
-  const [lists, setlists] = useState<CommentaryList | undefined>();
-
-  useEffect(() => {
-    async function fetchData() {
-      const commentaryList = await getCommentaryList();
-      setlists(commentaryList);
-    }
-    fetchData();
-  }, []);
-
+const PoliceAdministrationList = (props: Props) => {
   return (
     <List>
-      {lists?.data.map((item, idx) => (
+      {dummyPAList?.map((item, idx) => (
         <ListBox
           key={idx}
           commentaryId={item.commentaryId}
@@ -44,4 +34,4 @@ const List = styled.div`
   align-items: center;
   overflow: hidden;
 `;
-export default CommentaryLists;
+export default PoliceAdministrationList;

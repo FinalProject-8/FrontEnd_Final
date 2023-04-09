@@ -18,7 +18,6 @@ import StrategyManage from './pages/admin/StrategyManage';
 // const Mobile = React.lazy(() => import('./pages/mobile/index'));
 // const Detail = React.lazy(() => import('./pages/mobile/commentary/detail'));
 // const Admin = React.lazy(() => import('./pages/admin/index'));
-
 const router = createBrowserRouter([
   {
     path: '/',

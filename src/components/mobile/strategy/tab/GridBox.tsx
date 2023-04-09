@@ -9,14 +9,11 @@ type Props = {
   image: string;
   createdDate: string;
 };
-interface ImageProp {
-  src: string;
-}
 
 const GridBox = (props: Props) => {
   return (
     <Box>
-      <Image src={props.image} />
+      <Image src='../public/학습전략.png' alt='학습전략' />
       <Info>
         <Subject>{CheckSubject(props.subjectId)}</Subject>
         <Instructor>{props.instructorName} 교수님</Instructor>
@@ -37,7 +34,7 @@ const Box = styled.div`
   height: 182px;
   gap: 3px;
 `;
-const Image = styled.img<ImageProp>`
+const Image = styled.img`
   width: 160px;
   height: 90px;
   border-radius: 4px;
