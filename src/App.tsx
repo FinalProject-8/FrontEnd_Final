@@ -1,12 +1,13 @@
-import { ScrollRestoration, Outlet } from "react-router-dom";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
+import { ScrollRestoration, Outlet } from 'react-router-dom';
+import './App.css';
+import GlobalStyles from './style/globalStyles';
 
 function App() {
   return (
     <div>
       <ScrollRestoration />
       <Outlet />
+      <GlobalStyles />
     </div>
   );
 }
