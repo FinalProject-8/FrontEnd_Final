@@ -20,6 +20,7 @@ function StrategyManage() {
 const FlexBox = styled.div`
   padding-top: 84px;
   display: flex;
+  /* justify-content: center; */
 `;
 
 export default StrategyManage;
