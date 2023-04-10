@@ -16,7 +16,6 @@ const Header = styled.header`
   justify-content: center;
   border-bottom: 2px solid #bdbdbd;
 `;
-
 const Tab = styled.div`
   height: 40px;
   width: 100%;
@@ -26,11 +25,9 @@ const Tab = styled.div`
   padding: 0 20px;
   border-bottom: 1px solid #bdbdbd;
 `;
-
 type TabButtonProps = HTMLAttributes<HTMLButtonElement> & {
   color?: string;
 };
-
 const TabButton = styled.button<TabButtonProps>`
   padding: 10px;
   color: ${(props) => (props.color ? props.color : 'black')};
@@ -48,13 +45,10 @@ const VideoCaontainer = styled.div`
   height: 222px;
   background: skyBlue;
 `;
-
 const SubjectInfoList = styled.ul``;
-
 type SubjectInfoProps = HTMLAttributes<HTMLLIElement> & {
   align?: 'center' | 'start' | 'end';
 };
-
 const SubjectInfo = styled.div<SubjectInfoProps>`
   width: 100%;
   height: 40px;
@@ -63,7 +57,6 @@ const SubjectInfo = styled.div<SubjectInfoProps>`
   display: flex;
   justify-content: ${(props) => (props.align ? props.align : 'start')};
 `;
-
 const DownloadContainer = styled.div`
   padding: 13px 40px;
   display: flex;
@@ -72,7 +65,6 @@ const DownloadContainer = styled.div`
   gap: 40px;
   margin: 24px auto;
 `;
-
 const DownloadButton = styled.button`
   padding: 9px 18px;
   border-radius: 10px;
@@ -94,10 +86,8 @@ const Detail = () => {
       setData(response);
       setIsLoading(false);
     }
-
     fetch();
   }, []);
-
   return (
     <>
       <Header>올라! 학습특강 기출 해설</Header>
@@ -125,5 +115,4 @@ const Detail = () => {
     </>
   );
 };
-
 export default Detail;

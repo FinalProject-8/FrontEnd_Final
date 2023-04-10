@@ -4,21 +4,12 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { getStrategyList, strategyList } from '../../../api/axios';
+import { dummyLists } from '../../../../public/dummy/data';
 import SlideBox from './slideBox';
 
 type Props = {};
 
-const MainStrategy = (props: Props) => {
-  const [lists, setlists] = useState<strategyList | undefined>();
-
-  useEffect(() => {
-    async function fetchData() {
-      const strategyList = await getStrategyList();
-      setlists(strategyList);
-    }
-    fetchData();
-  }, []);
+const MainCommentary = (props: Props) => {
   const navigate = useNavigate();
   const settings = {
     dots: false,
@@ -29,16 +20,16 @@ const MainStrategy = (props: Props) => {
   return (
     <Wrap>
       <Box>
-        <Title>학습전략</Title>
-        <Go onClick={() => navigate('/mobile/strategy')}>더보기</Go>
+        <Title>기출해설 상세분석</Title>
+        <Go onClick={() => navigate('/mobile/commentary')}>더보기</Go>
       </Box>
       <Slider {...settings}>
-        {lists?.data.map((el, idx) => (
+        {dummyLists.map((el, idx) => (
           <SlideBox
             key={idx}
-            img={el.image}
+            img={el.instructorImg}
             title={el.lectureName}
-            subject={el.subjectId}
+            subject={el.subject}
             instructor={el.instructorName}
           ></SlideBox>
         ))}
@@ -66,4 +57,4 @@ const Go = styled.button`
   color: #494949;
 `;
 
-export default MainStrategy;
+export default MainCommentary;

@@ -1,21 +1,39 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import Filters from './Filters';
 import CommentaryLists from './lists';
 import Mobile from '../../../pages/mobile/mobiletab';
+import CriminalList from './CriminalList';
+import PoliceScienceList from './PSList';
+import PoliceAdministrationList from './PAList';
 type prop = {};
-const subject = ['경찰학', '형사법', '경찰헌법'];
+const subject = ['경찰학', '형사법', '경찰헌법', '전체보기'];
+const subjectTabs = [
+  <CommentaryLists />,
+  <PoliceScienceList />,
+  <CriminalList />,
+  <PoliceAdministrationList />,
+];
 const years = ['2023', '2022', '2021', '2020', '2019'];
-const sort = ['추천순', '조회순', '최신순'];
 const Commentary = (prop: prop) => {
+  const [subjectClick, setsubjectClick] = useState(String);
+  const [checkSubjectClick, setcheckSubjectClick] = useState(0);
+  const handleData = (element: string) => {
+    setsubjectClick(element);
+    if (element === '전체보기') setcheckSubjectClick(0);
+    else if (element === '경찰학') setcheckSubjectClick(1);
+    else if (element === '형사법') setcheckSubjectClick(2);
+    else if (element === '경찰헌법') setcheckSubjectClick(3);
+  };
   return (
     <div>
       <Mobile page={1} />
       <Wrap>
         <FilterTab>
-          <Filters value='과목선택' list={subject} />
-          <Filters value='년도' list={years} />
+          <Filters value='과목선택' list={subject} setdata={handleData} />
+          {/* <Filters value='년도' list={years} /> */}
         </FilterTab>
-        <CommentaryLists />
+        {subjectTabs[checkSubjectClick]}
       </Wrap>
     </div>
   );

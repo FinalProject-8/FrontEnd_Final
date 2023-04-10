@@ -1,24 +1,26 @@
 import { AxiosError } from 'axios';
 import { request } from './core/api';
 
-export interface CommentaryList {
-  class: string;
-  subject: string;
-  instructorImg: string;
+export interface Commentary {
+  divisionName: string;
+  subjectName: string;
+  commentaryId: number;
   instructorName: string;
-  lectureName: string;
-  commentaryFile: string;
-  downloadCount: number;
-  overallVideo: string;
-  commentaryVideo1: string;
-  commentaryVideo2: string;
+  commentaryTitle: string;
+  createdDate: string;
+  fileDownloadCount: number;
+  fileName: string;
+  fileId: number;
+  videoUrl: Array<videoUrl>;
+}
+export interface CommentaryList {
+  data: Array<Commentary>;
+}
+export interface videoUrl {
+  videoName: string;
+  videoUrl: string;
 }
 
-export interface DataSet {
-  code: number;
-  message: string;
-  data: CommentaryList;
-}
 export interface strategyList {
   map: any;
   data: Array<strategy>;
@@ -37,10 +39,17 @@ export const getCommentaryList = async (): Promise<any> => {
     method: 'GET',
   });
   return {
-    CommentaryListData: res.data,
+    data: res.data,
   };
 };
-
+export const getCommentaryImg = async (id: number): Promise<any> => {
+  const res = await request(`/image/${id}`, {
+    method: 'GET',
+  });
+  return {
+    img: res.data,
+  };
+};
 export const getStrategyList = async (): Promise<any> => {
   const res = await request('/strategy', {
     method: 'GET',
@@ -79,6 +88,29 @@ export const getCommentarySearchDate = async (
     data: {
       createdDate: createdDate,
     },
+  });
+  return {
+    data: res.data,
+  };
+};
+
+export const getCommentarySearchSubject = async (
+  subjectName: string,
+): Promise<any> => {
+  const res = await request('/commentary/search/subjectName', {
+    method: 'GET',
+    data: {
+      subjectName: subjectName,
+    },
+  });
+  return {
+    data: res.data,
+  };
+};
+
+export const getDownloadFile = async (fileId: number): Promise<any> => {
+  const res = await request(`/download/${fileId}`, {
+    method: 'GET',
   });
   return {
     data: res.data,

@@ -38,7 +38,6 @@ function AdminPost() {
         ));
     }
   };
-
   return (
     <MainContainer>
       <AdminCategory />

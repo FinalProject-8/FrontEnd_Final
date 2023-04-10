@@ -61,7 +61,6 @@ const Input = styled.input`
     color: var(--color-button-text);
   }
 `;
-
 const Button = styled.button`
   background-color: var(--color-button-text);
   width: 100%;
