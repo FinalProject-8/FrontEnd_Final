@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ListBox from './ListBox';
 import styled from 'styled-components';
 import { dummyPSList } from '../../../../public/dummy/data';
+import { useNavigate } from 'react-router-dom';
+import { getCommentarySearchSubject, strategyList } from '../../../api/axios';
 
 type Props = {};
 
 const PoliceScienceList = (props: Props) => {
+  const [lists, setlists] = useState<strategyList | undefined>();
+  useEffect(() => {
+    async function fetchData() {
+      const strategyList = await getCommentarySearchSubject('경찰학');
+      setlists(strategyList);
+    }
+    fetchData();
+  }, []);
+  const navigate = useNavigate();
   return (
     <List>
       {dummyPSList?.map((item, idx) => (
@@ -21,6 +32,7 @@ const PoliceScienceList = (props: Props) => {
           fileId={item.fileId}
           instructorName={item.instructorName}
           videoUrl={item.videoUrl}
+          onClick={() => navigate('/mobile/detail')}
         />
       ))}
     </List>

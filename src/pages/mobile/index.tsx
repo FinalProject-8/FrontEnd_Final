@@ -6,7 +6,7 @@ import Popular from '../../components/mobile/main/popular';
 import MainStrategy from '../../components/mobile/main/strategy';
 import MainCommentary from '../../components/mobile/main/commentary';
 import Instructor from '../../components/mobile/main/instructor';
-
+import '../../style/normalPage.css';
 type Props = {};
 
 const Mobile = (props: Props) => {

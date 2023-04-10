@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
 type Props = {};
 
@@ -6,7 +5,6 @@ interface Click {
   active: boolean;
 }
 const PCheader = (props: Props) => {
-  const [selectMenu, setselectMenu] = useState(true);
   return (
     <Wrap>
       <ImgHeader>
@@ -59,5 +57,7 @@ const MenuBar = styled.div`
 const Menu = styled.div<Click>`
   color: ${(props) => (props.active ? 'black' : '#888888')};
   white-space: nowrap;
+  font-weight: ${(props) => (props.active ? '700' : '400')};
+  font-size: 24px;
 `;
 export default PCheader;

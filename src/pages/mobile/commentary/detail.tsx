@@ -40,10 +40,9 @@ const NavButton = styled.button`
   font-weight: bold;
 `;
 const VideoCaontainer = styled.div`
-  width: 100vw;
-  transform: translateX(-17px);
-  height: 222px;
-  background: skyBlue;
+  width: 360px;
+  height: 202.5px;
+  background-image: url('../public/강의상세.png');
 `;
 const SubjectInfoList = styled.ul``;
 type SubjectInfoProps = HTMLAttributes<HTMLLIElement> & {
@@ -74,20 +73,20 @@ const DownloadButton = styled.button`
   font-weight: bold;
 `;
 const Detail = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState(null);
-  const { index } = useParams();
-  console.log(index);
-  console.log('this is detailPage');
-  useEffect(() => {
-    async function fetch() {
-      const response = await getStrategyDetail(Number(index));
-      console.log(response);
-      setData(response);
-      setIsLoading(false);
-    }
-    fetch();
-  }, []);
+  const [isLoading, setIsLoading] = useState(false);
+  // const [data, setData] = useState(null);
+  // const { index } = useParams();
+  // console.log(index);
+  // console.log('this is detailPage');
+  // useEffect(() => {
+  //   async function fetch() {
+  //     const response = await getStrategyDetail(Number(index));
+  //     console.log(response);
+  //     setData(response);
+  //     setIsLoading(false);
+  //   }
+  //   fetch();
+  // }, []);
   return (
     <>
       <Header>올라! 학습특강 기출 해설</Header>
@@ -100,10 +99,10 @@ const Detail = () => {
       ) : (
         <>
           <VideoCaontainer />
-          <NavButton>{'<'} 2022 경찰 공채 2차 시험</NavButton>
+          <NavButton>{'<'} 2023 형사법 모의고사 기출</NavButton>
           <SubjectInfoList>
             <SubjectInfo>기출 해설 1번</SubjectInfo>
-            <SubjectInfo>경찰학 김재규</SubjectInfo>
+            <SubjectInfo>형사법 공유 교수</SubjectInfo>
             <SubjectInfo align='end'>조회수 2333 2023.03.23</SubjectInfo>
           </SubjectInfoList>
           <DownloadContainer>

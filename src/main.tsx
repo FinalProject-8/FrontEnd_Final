@@ -14,6 +14,7 @@ import PreviousCommentary from './pages/admin/PreviousCommentary';
 import PreviousManage from './pages/admin/PreviousManage';
 import AdminStrategy from './pages/admin/Strategy';
 import StrategyManage from './pages/admin/StrategyManage';
+import PC from './pages/pc';
 // const App = React.lazy(() => import('./App'));
 // const Mobile = React.lazy(() => import('./pages/mobile/index'));
 // const Detail = React.lazy(() => import('./pages/mobile/commentary/detail'));
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
+      {
+        path: '/pc',
+        element: <PC />,
+      },
       {
         path: '/mobile',
         element: <Mobile />,
@@ -40,7 +45,7 @@ const router = createBrowserRouter([
         element: <Commentary />,
       },
       {
-        path: '/detail/:index',
+        path: '/mobile/detail',
         element: <Detail />,
       },
       // {

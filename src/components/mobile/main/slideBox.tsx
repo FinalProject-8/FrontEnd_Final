@@ -11,7 +11,7 @@ type Props = {
 const SlideBox = (props: Props) => {
   return (
     <Box>
-      <IMAGE src='public/섬1네일 1.png' alt='사진' />
+      <IMAGE src='../public/섬1네일 1.png' alt='사진' />
       <TITLE>{props.title}</TITLE>
       <INFO>
         <p>{CheckSubject(props.subject)}</p>

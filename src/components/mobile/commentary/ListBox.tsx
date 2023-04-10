@@ -13,6 +13,7 @@ type Props = {
   fileName: string;
   fileId: number;
   videoUrl: Array<videoUrl>;
+  onClick: () => void;
 };
 interface Btn {
   onClick(): void;

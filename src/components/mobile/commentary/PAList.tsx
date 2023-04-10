@@ -2,10 +2,12 @@ import React from 'react';
 import ListBox from './ListBox';
 import styled from 'styled-components';
 import { dummyPAList } from '../../../../public/dummy/data';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {};
 
 const PoliceAdministrationList = (props: Props) => {
+  const navigate = useNavigate();
   return (
     <List>
       {dummyPAList?.map((item, idx) => (
@@ -21,6 +23,7 @@ const PoliceAdministrationList = (props: Props) => {
           fileId={item.fileId}
           instructorName={item.instructorName}
           videoUrl={item.videoUrl}
+          onClick={() => navigate('/mobile/detail')}
         />
       ))}
     </List>
