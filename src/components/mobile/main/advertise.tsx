@@ -14,9 +14,9 @@ const Advertise = (props: Props) => {
   return (
     <div>
       <Slider {...settings}>
-        <Slide src='../public/교수님 칵드.png' />
-        <Slide src='../public/교수님 칵드2.png' />
-        <Slide src='../public/교수님 칵드3.png' />
+        <Slide src='/교수님 칵드.png' />
+        <Slide src='/교수님 칵드2.png' />
+        <Slide src='/교수님 칵드3.png' />
       </Slider>
     </div>
   );

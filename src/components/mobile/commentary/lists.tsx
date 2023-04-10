@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import { CommentaryList, getCommentaryList } from '../../../api/axios';
 import ListBox from './ListBox';
 import { dummyLists } from '../../../../public/dummy/data';
+import { useNavigate } from 'react-router-dom';
 type Props = {};
 
 const CommentaryLists = (props: Props) => {
   const [lists, setlists] = useState<CommentaryList | undefined>();
-
+  const navigate = useNavigate();
   useEffect(() => {
     async function fetchData() {
       const commentaryList = await getCommentaryList();
@@ -31,6 +32,7 @@ const CommentaryLists = (props: Props) => {
           fileId={item.fileId}
           instructorName={item.instructorName}
           videoUrl={item.videoUrl}
+          onClick={() => navigate('/mobile/commentary/detail')}
         />
       ))}
     </List>

@@ -13,6 +13,7 @@ type Props = {
   fileName: string;
   fileId: number;
   videoUrl: Array<videoUrl>;
+  onClick: () => void;
 };
 interface Btn {
   onClick(): void;
@@ -43,7 +44,7 @@ const ListBox = (props: Props) => {
   };
   return (
     <Box onClick={() => moveToDetail()}>
-      <Image src='../public/교수 사진.png' alt='교수사진' />
+      <Image src='/교수 사진.png' alt='교수사진' />
       <Info>
         <Title>
           <p>{props.subjectName}</p>

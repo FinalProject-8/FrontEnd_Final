@@ -88,14 +88,13 @@ const TabButton = styled.li<TabProps>`
   display: flex;
   align-items: center;
   text-align: center;
-  border: solid 1px black;
+  border: solid 1px #888888;
   border-radius: 10px;
   /* width: 46px; */
   height: 27px;
   padding: 0 5px;
-  background-color: ${(props) =>
-    props.active ? 'rgba(0, 0, 0, 0.8)' : 'white'};
-  color: ${(props) => (props.active ? 'white' : 'black')};
+  background-color: ${(props) => (props.active ? '#888888' : 'white')};
+  color: ${(props) => (props.active ? 'white' : '#888888')};
 `;
 const Search = styled.div`
   margin-left: 40px;

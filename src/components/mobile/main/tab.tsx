@@ -6,14 +6,19 @@ interface Click {
   active: boolean;
 }
 const MobileMainheader = (props: Props) => {
-  const [selectMenu, setselectMenu] = useState(true);
   return (
     <Container>
       <MenuBar>
         <Menu active={true}>합격특강</Menu>
-        <Menu active={false}>교재</Menu>
-        <Menu active={false}>수강후기</Menu>
-        <Menu active={false}>기숙학원</Menu>
+        <Menu active={false} href='https://kimcodi.kr/p/product/books-list-new'>
+          교재
+        </Menu>
+        <Menu active={false} href='https://kimcodi.kr/p/teacher/teacher-list'>
+          교수진
+        </Menu>
+        <Menu active={false} href='http://campus.kpa.co.kr/andong/index.html'>
+          기숙학원
+        </Menu>
       </MenuBar>
     </Container>
   );
@@ -35,7 +40,7 @@ const MenuBar = styled.div`
   padding: 10px 20px;
   gap: 20px;
 `;
-const Menu = styled.div<Click>`
+const Menu = styled.a<Click>`
   font-size: 16px;
   font-weight: 700;
 

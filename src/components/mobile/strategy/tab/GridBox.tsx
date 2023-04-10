@@ -13,7 +13,7 @@ type Props = {
 const GridBox = (props: Props) => {
   return (
     <Box>
-      <Image src='../public/학습전략.png' alt='학습전략' />
+      <Image src='/학습전략.png' alt='학습전략' />
       <Info>
         <Subject>{CheckSubject(props.subjectId)}</Subject>
         <Instructor>{props.instructorName} 교수님</Instructor>

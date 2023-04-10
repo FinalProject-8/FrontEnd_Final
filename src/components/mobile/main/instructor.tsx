@@ -18,12 +18,12 @@ const Instructor = (props: Props) => {
   };
   return (
     <StyledSlider {...settings}>
-      <Img src='public/교사카드.png' />
-      <Img src='public/교사카드.png' />
-      <Img src='public/교사카드.png' />
-      <Img src='public/교사카드.png' />
-      <Img src='public/교사카드.png' />
-      <Img src='public/교사카드.png' />
+      <Img src='/교사카드.png' />
+      <Img src='/교사카드.png' />
+      <Img src='/교사카드.png' />
+      <Img src='/교사카드.png' />
+      <Img src='/교사카드.png' />
+      <Img src='/교사카드.png' />
     </StyledSlider>
   );
 };

@@ -2,10 +2,13 @@ import React from 'react';
 import ListBox from './ListBox';
 import styled from 'styled-components';
 import { dummyCriminalList } from '../../../../public/dummy/data';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {};
 
 const CriminalList = (props: Props) => {
+  const navigate = useNavigate();
+
   return (
     <List>
       {dummyCriminalList?.map((item, idx) => (
@@ -21,6 +24,7 @@ const CriminalList = (props: Props) => {
           fileId={item.fileId}
           instructorName={item.instructorName}
           videoUrl={item.videoUrl}
+          onClick={() => navigate('/mobile/detail')}
         />
       ))}
     </List>
