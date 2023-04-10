@@ -61,11 +61,11 @@ const router = createBrowserRouter([
         element: <AdminStrategy />,
       },
       {
-        path: '/admin/strategy/manage',
+        path: '/admin/strategy/manage/:id',
         element: <StrategyManage />,
       },
       {
-        path: '/admin/previous/manage',
+        path: '/admin/previous/manage/:id',
         element: <PreviousManage />,
       },
     ],

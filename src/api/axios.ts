@@ -20,6 +20,7 @@ export interface DataSet {
   data: CommentaryList;
 }
 export interface strategyList {
+  map: any;
   data: Array<strategy>;
 }
 interface strategy {

@@ -24,7 +24,7 @@ function AdminCategory() {
       <FlexBox>
         {location.includes('manage') ? (
           <>
-            <LinkStyle to='manage'>게시글 등록</LinkStyle>
+            <LinkStyle to='manage/id'>게시글 등록</LinkStyle>
           </>
         ) : (
           <>
@@ -36,7 +36,7 @@ function AdminCategory() {
             </select>{' '}
           </>
         )}
-        <LinkStyle to='manage'>게시글 등록</LinkStyle>
+        <LinkStyle to='manage/id'>게시글 등록</LinkStyle>
       </FlexBox>
     </Category>
   );
