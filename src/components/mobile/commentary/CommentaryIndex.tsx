@@ -14,7 +14,7 @@ const subjectTabs = [
   <CriminalList />,
   <PoliceAdministrationList />,
 ];
-const years = ['2023', '2022', '2021', '2020', '2019'];
+const years = ['2023', '2022', '2021'];
 const Commentary = (prop: prop) => {
   const [subjectClick, setsubjectClick] = useState(String);
   const [checkSubjectClick, setcheckSubjectClick] = useState(0);
@@ -24,6 +24,9 @@ const Commentary = (prop: prop) => {
     else if (element === '경찰학') setcheckSubjectClick(1);
     else if (element === '형사법') setcheckSubjectClick(2);
     else if (element === '경찰헌법') setcheckSubjectClick(3);
+    else if (element === '2023') setcheckSubjectClick(0);
+    else if (element === '2022') setcheckSubjectClick(0);
+    else if (element === '2021') setcheckSubjectClick(0);
   };
   return (
     <div>
@@ -31,7 +34,7 @@ const Commentary = (prop: prop) => {
       <Wrap>
         <FilterTab>
           <Filters value='과목선택' list={subject} setdata={handleData} />
-          {/* <Filters value='년도' list={years} /> */}
+          <Filters value='년도' list={years} setdata={handleData} />
         </FilterTab>
         {subjectTabs[checkSubjectClick]}
       </Wrap>

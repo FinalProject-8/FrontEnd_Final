@@ -20,7 +20,7 @@ const Mobile = (props: Props) => {
       <Popular />
       <MainStrategy />
       <MainCommentary />
-      <Test src='../public/모의고사.png' />
+      <Test src='/모의고사.png' />
       <Instructor />
     </Wrap>
   );
