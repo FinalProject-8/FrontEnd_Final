@@ -22,6 +22,7 @@ export interface videoUrl {
 }
 
 export interface strategyList {
+  map: any;
   data: Array<strategy>;
 }
 interface strategy {

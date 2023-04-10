@@ -1,23 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import AdminPostCard from './AdminPostCard';
 import AdminCategory from './AdminCategory';
+import {
+  getStrategyList,
+  strategyList,
+  getCommentaryList,
+  CommentaryList,
+} from '../../../api/axios';
+import { adminLocation } from '../../../utils/adminLocation';
 
 function AdminPost() {
-  const use_for = () => {
-    const result = [];
-    for (let i = 0; i < 9; i++) {
-      result.push(<AdminPostCard />);
+  const [strategyList, setStrategyList] = useState<strategyList | undefined>();
+  const [previousList, setPreviousList] = useState<
+    Array<CommentaryList> | undefined
+  >();
+
+  useEffect(() => {
+    async function fetchData() {
+      const strategyData = await getStrategyList();
+      const previousData = await getCommentaryList();
+      setStrategyList(strategyData?.data);
+      setPreviousList(previousData?.CommentaryListData);
     }
-    return result;
+    fetchData();
+  }, []);
+  const propsData = () => {
+    switch (adminLocation()) {
+      case 1:
+        return strategyList?.map((list: any) => (
+          <AdminPostCard item={list} key={list.id} />
+        ));
+      case 2:
+        return previousList?.map((list: any) => (
+          <AdminPostCard item={list} key={list.id} />
+        ));
+    }
   };
   return (
     <MainContainer>
       <AdminCategory />
       <PatchList>
         <AdminPostCard />
-        {use_for()}
+        {propsData()}
       </PatchList>
     </MainContainer>
   );
